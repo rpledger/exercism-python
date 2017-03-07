@@ -2,13 +2,18 @@ class Clock:
 	def __init__(self, hours, minutes):
 		self.hr = hours % 24
 		if minutes >= 60:
-			self.hr = (self.hr + (minutes % 60)) % 24
+			self.hr = (self.hr + int(minutes/60)) % 24
 		self.min = minutes % 60
 		print self.hr
 		print self.min
 
 	def __repr__(self):
 		return "%02d:%02d" % (self.hr, self.min)
+
+	def __eq__(self, other):
+		if self.min == other.min and self.hr == other.hr:
+			return True
+		return False
 
 	def add(self, min_to_add):
 		if (min_to_add + self.min) >= 60:
