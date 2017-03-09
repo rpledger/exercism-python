@@ -8,7 +8,7 @@ class Clock:
 		self.correct_hours()
 		self.correct_mins()
 
-	def __repr__(self):
+	def __str__(self):
 		return "%02d:%02d" % (self.hr, self.min)
 
 	def __eq__(self, other):
