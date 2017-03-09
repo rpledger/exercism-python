@@ -3,8 +3,8 @@ import math
 class Clock:
 	def __init__(self, hours, minutes):
 
-		self.hr = hours % 24
-		self.min = minutes % 60
+		self.hr = hours
+		self.min = minutes
 		self.correct_hours()
 		self.correct_mins()
 
@@ -18,13 +18,12 @@ class Clock:
 		self.hr = self.hr % 24
 
 	def correct_mins(self):
-		self.hr += (self.min/60) % 24
+		self.hr += (self.min/60)
 		self.hr = self.hr % 24
 		self.min = self.min % 60
 
 
 	def add(self, min_to_add):
-		#self.hr += ((self.min + min_to_add)/60)% 24
 		self.min += min_to_add
 		self.correct_hours()
 		self.correct_mins()
